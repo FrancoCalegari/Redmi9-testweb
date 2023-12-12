@@ -388,4 +388,10 @@ footer {
         border-radius: 15px;
         display: flex;
     }
+    #inicio {
+        width: 100%;
+        background-color: transparent;
+        margin: auto;
+        overflow: hidden;
+    }
 }
