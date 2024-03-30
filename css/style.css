@@ -28,15 +28,15 @@ body {
 
 body {
     background-color: #f7f7f7;
-    background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
+    background-image: url( /img/Picsart_24-01-25_12-22-58-108.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
 header {
     background: #2e29299e;
-    color: #fff;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.201);
+    backdrop-filter: blur(5px);
     color: #fff;
     padding: 5px;
     display: flex;
@@ -45,7 +45,7 @@ header {
     position: relative;
     z-index: 10;
     width: 100%;
-    margin: auto;
+    
 
 }
 
@@ -107,6 +107,7 @@ nav a {
     z-index: -1;
     float: right;
     background-color: transparent;
+    filter: drop-shadow(5px 5px 5px #333);
 }
 
 .pres-img img {
@@ -201,7 +202,7 @@ nav a {
 }
 
 .gallery img {
-    width: 11rem;
+    width: 16vw;
     max-width: 300px;
     height: 11rem;
     object-fit: cover;
@@ -209,6 +210,7 @@ nav a {
 
 .gallery-int section {
     background: #2e29299e;
+    backdrop-filter: blur(5px);
     color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -225,6 +227,7 @@ nav a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2vh;
 }
 
 .camara ul {
@@ -251,6 +254,7 @@ nav a {
 }
 
 .rendimiento {
+    padding: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -268,6 +272,10 @@ nav a {
     list-style: none;
 }
 
+.caracteristicas {
+    padding: 2vh;
+}
+
 .caracteristicas h2 {
     font-size: 1.5rem;
     text-align: center;
@@ -276,7 +284,8 @@ nav a {
 /*footer*/
 
 footer {
-    background-color: #333;
+    background: #2e29299e;
+    backdrop-filter: blur(5px);
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -287,23 +296,49 @@ footer {
 
 /*Juegos*/
 
-.juegos div {
-    background-color: #444;
+.juegos {
+    background: #2e29299e;
+    backdrop-filter: blur(5px);
     color: #fff;
+    margin-top: 6vh;
+    margin-bottom: 8wvh;
+    display: flex;
+    justify-content: center;
+}
 
+.games-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.juegos div img {
+    border-radius: 23%;
+    width: 4rem;
+}
+
+.juegos div div div {
+    display: flex;
+    align-items: center;
+    
+}
+
+.games-p p {
+    margin-bottom: 5rem;
 }
 
 /*gcam*/
 
 .gcam div{
-    background-color: #444;
+    background: #2e29299e;
+    backdrop-filter: blur(5px);
     color: #fff;
 }
 
 /*os*/
 
 .os div{
-    background-color: #444;
+    background: #2e29299e;
+    backdrop-filter: blur(5px);
     color: #fff;
 }
 
@@ -311,42 +346,11 @@ footer {
 
 /*responsive desing*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {   
     nav a {
-        display: block;
+    display: block;
+    font-size: 1vh;
     }
-
-    .gallery img {
-        max-width: 100%;
-    }
-
-    .gallery-int {
-        width: 88%;
-        max-width: 660px;
-        margin: auto;
-        border-radius: 20px;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 10px;
-        grid-auto-rows: minmax(5rem, auto);
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-    }
-
-    .gallery img {
-        width: 10rem;
-        max-width: 300px;
-        height: 10rem;
-        object-fit: cover;
-    }
-
-    .pantalla img {
-        height: 10rem;
-        margin: auto;
-    
-    }
-
     header h1 {
         font-family: Mi Sans (Xiaomi) ;
         color: #fff;
@@ -388,6 +392,43 @@ footer {
         border-radius: 15px;
         display: flex;
     }
+}
+
+@media only screen and (max-width: 870px) {
+ 
+
+    .gallery img {
+        max-width: 100%;
+    }
+
+    .gallery-int {
+        width: 88%;
+        max-width: 660px;
+        margin: auto;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(5rem, auto);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+
+    .gallery img {
+        width: 10rem;
+        max-width: 300px;
+        height: 10rem;
+        object-fit: cover;
+    }
+
+    .pantalla img {
+        height: 10rem;
+        margin: auto;
+    
+    }
+
+   
     #inicio {
         width: 100%;
         background-color: transparent;
