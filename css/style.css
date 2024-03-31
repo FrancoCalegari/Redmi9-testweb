@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Mi Sans (Xiaomi)';
     src: local('Mi Sans (Xiaomi) Regular'), local('Mi-Sans-(Xiaomi)-Regular'),
-        url('/ttf/MiSans-Regular.ttf') format('truetype');
+        url('../ttf/MiSans-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -28,7 +28,7 @@ body {
 
 body {
     background-color: #f7f7f7;
-    background-image: url( ./img/Picsart_24-01-25_12-22-58-108.jpg);
+    background-image: url(../img/Picsart_24-01-25_12-22-58-108.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
