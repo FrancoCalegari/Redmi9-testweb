@@ -27,11 +27,18 @@ body {
 /* nav*/
 
 body {
+    background-color: #03D1FF;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#inicio {
     background-color: #f7f7f7;
     background-image: url(../img/Picsart_24-01-25_12-22-58-108.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
+    
 }
 
 header {
@@ -78,7 +85,7 @@ nav a {
 /*Section general config*/
 
 #inicio {
-    width: 80%;
+    width: 100%;
     background-color: transparent;
     margin: auto;
     overflow: hidden;
@@ -104,7 +111,7 @@ nav a {
     right: -1rem;
     top: -25px;
     position: relative;
-    z-index: -1;
+    z-index: 1;
     float: right;
     background-color: transparent;
     filter: drop-shadow(5px 5px 5px #333);
@@ -118,6 +125,7 @@ nav a {
 
 .cont-pres {
     background-color: transparent;
+    background: linear-gradient(0deg, #03D1FF 0%, rgba(249, 249, 249, 0) 50%, #1E697A 100%);
     height: 35rem;
     display: flex;
     align-items: center;
@@ -174,6 +182,11 @@ nav a {
 /* gallery config*/
 
 
+#gallery {
+    background-color: #03D1FF;
+
+}
+
 
 .gallery-int {
     width: 87%;
@@ -187,6 +200,7 @@ nav a {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     overflow: hidden;
+    
 }
 
 .gallery {
@@ -199,6 +213,7 @@ nav a {
     width: fit-content;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    
 }
 
 .gallery img {
@@ -216,6 +231,7 @@ nav a {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     list-style: none;
+    
 }
 
 
