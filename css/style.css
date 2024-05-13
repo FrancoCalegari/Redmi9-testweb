@@ -27,22 +27,22 @@ body {
 /* nav*/
 
 body {
-    background-color: #03D1FF;
+    background-color: #14252D;
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 
 #inicio {
-    background-color: #f7f7f7;
-    background-image: url(../img/Picsart_24-01-25_12-22-58-108.jpg);
+    background-color: #14252D;
+    background-image: url(../img/backgroundblack.webp);
     background-repeat: no-repeat;
     background-size: cover;
     
 }
 
 header {
-    background: #2e29299e;
+    background: #14252D;
     backdrop-filter: blur(5px);
     color: #fff;
     padding: 5px;
@@ -106,7 +106,7 @@ nav a {
 }
 
 .pres-img {
-    width: 50%;
+    width: 42%;
     height: auto;
     right: -1rem;
     top: -25px;
@@ -125,7 +125,7 @@ nav a {
 
 .cont-pres {
     background-color: transparent;
-    background: linear-gradient(0deg, #03D1FF 0%, rgba(249, 249, 249, 0) 50%, #1E697A 100%);
+    background: linear-gradient(0deg, #14252D 0%, rgba(249, 249, 249, 0) 50%, #14252D 100%);
     height: 35rem;
     display: flex;
     align-items: center;
@@ -183,7 +183,7 @@ nav a {
 
 
 #gallery {
-    background-color: #03D1FF;
+    background-color: #14252D;
 
 }
 
@@ -217,9 +217,9 @@ nav a {
 }
 
 .gallery img {
-    width: 16vw;
+    width: 18vw;
     max-width: 300px;
-    height: 11rem;
+    height: 7rem;
     object-fit: cover;
 }
 
