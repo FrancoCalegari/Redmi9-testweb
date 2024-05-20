@@ -351,7 +351,23 @@ footer {
 
 .games-section {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-flow: wrap;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.games-div-1 {
+    padding: 4rem;
+    background-color: red;
+    margin: 1rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.games-div-1 div {
+    margin-right: 3rem;
 }
 
 .juegos div img {
