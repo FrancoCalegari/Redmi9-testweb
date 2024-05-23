@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galería de Imágenes</title>
+    <style>
+        /* Código CSS aquí */
+        .gallery {
+            width: 400px; 
+            height: 300px; 
+            overflow: hidden;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            filter: blur(0px); 
+            transition: filter 0.5s ease; 
+        }
+
+        .gallery img.active {
+            filter: blur(0px); 
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        </div>
+
+    <script>
+       const gallery = document.querySelector('.gallery');
+const images = []; // Array vacío para las imágenes
+
+// Función para obtener las imágenes de la carpeta
+async function fetchImages() {
+    try {
+        const response = await fetch('./img/gamesbackground'); // Obtiene el listado de la carpeta
+        const data = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const imageLinks = doc.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".webp"]');
+
+        imageLinks.forEach(link => {
+            const imageName = link.getAttribute('href');
+            images.push(imageName);
+        });
+
+        startSlideshow(); // Inicia la presentación después de cargar las imágenes
+    } catch (error) {
+        console.error('Error al cargar las imágenes:', error);
+    }
+}
+
+let currentImageIndex = 0;
+let intervalId;
+
+function showImage(index) {
+    gallery.innerHTML = ''; 
+            const img = document.createElement('img');
+            img.src = `./img/gamesbackground/${images[index]}`;
+            img.classList.add('active');
+            gallery.appendChild(img);
+
+            const previousImg = gallery.querySelector('img:not(.active)');
+            if (previousImg) {
+                previousImg.style.filter = 'blur(5px)'; 
+                setTimeout(() => {
+                    previousImg.remove();
+                }, 500); 
+            }
+
+            currentImageIndex = (index + 1) % images.length;
+}
+
+
+function startSlideshow() {
+    showImage(currentImageIndex);
+    intervalId = setInterval(() => {
+        showImage(currentImageIndex);
+    }, 5000);
+}
+
+fetchImages(); // Llama a la función para cargar las imágenes al principio
+
+    </script>
+</body>
+</html>
