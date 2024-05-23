@@ -1,87 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Galería de Imágenes</title>
-    <style>
-        /* Código CSS aquí */
-        .gallery {
-            width: 400px; 
-            height: 300px; 
-            overflow: hidden;
-        }
+  <title>Botones On/Off con Difuminado</title>
+  <style>
+    /* Estilos existentes para botones e imágenes */
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
 
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            filter: blur(0px); 
-            transition: filter 0.5s ease; 
-        }
+    img {
+      width: 100px; /* Ajusta el tamaño según tus imágenes */
+      height: 100px;
+    }
 
-        .gallery img.active {
-            filter: blur(0px); 
-        }
-    </style>
+    /* Animación de difuminado */
+    img {
+      transition: filter 2s ease;
+    }
+
+    img[alt="Off"] {
+      filter: blur(0.1px);
+    }
+  </style>
 </head>
 <body>
-    <div class="gallery">
-        </div>
+  <button id="toggleButton1">
+    <img id="buttonImage1" src="/img/iconmiui12/sis/status_bar_toggle_bluetooth_off.png" alt="Off"> 
+  </button>
 
-    <script>
-       const gallery = document.querySelector('.gallery');
-const images = []; // Array vacío para las imágenes
+  <button id="toggleButton2">
+    <img id="buttonImage2" src="/img/iconmiui12/sis/status_bar_toggle_wifi_off.png" alt="Off"> 
+  </button>
 
-// Función para obtener las imágenes de la carpeta
-async function fetchImages() {
-    try {
-        const response = await fetch('./img/gamesbackground'); // Obtiene el listado de la carpeta
-        const data = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data, 'text/html');
-        const imageLinks = doc.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".webp"]');
+  <button id="toggleButton3">
+    <img id="buttonImage3" src="/img/iconmiui12/sis/status_bar_toggle_data_off.png" alt="Off"> 
+  </button>
 
-        imageLinks.forEach(link => {
-            const imageName = link.getAttribute('href');
-            images.push(imageName);
-        });
+  <script>
+    const buttons = [
+      { button: document.getElementById('toggleButton1'), image: document.getElementById('buttonImage1'), stateKey: 'buttonState1', onImage: '/img/iconmiui12/sis/status_bar_toggle_bluetooth_on.png', offImage: '/img/iconmiui12/sis/status_bar_toggle_bluetooth_off.png' },
+      { button: document.getElementById('toggleButton2'), image: document.getElementById('buttonImage2'), stateKey: 'buttonState2', onImage: '/img/iconmiui12/sis/status_bar_toggle_wifi_on.png', offImage: '/img/iconmiui12/sis/status_bar_toggle_wifi_off.png' },
+      { button: document.getElementById('toggleButton3'), image: document.getElementById('buttonImage3'), stateKey: 'buttonState3', onImage: '/img/iconmiui12/sis/status_bar_toggle_data_on.png', offImage: '/img/iconmiui12/sis/status_bar_toggle_data_off.png' }
+    ];
 
-        startSlideshow(); // Inicia la presentación después de cargar las imágenes
-    } catch (error) {
-        console.error('Error al cargar las imágenes:', error);
-    }
-}
+    buttons.forEach(buttonData => {
+      let isOn = localStorage.getItem(buttonData.stateKey) === 'on';
 
-let currentImageIndex = 0;
-let intervalId;
+      if (isOn === null) {
+        isOn = true;
+        localStorage.setItem(buttonData.stateKey, 'on');
+      }
 
-function showImage(index) {
-    gallery.innerHTML = ''; 
-            const img = document.createElement('img');
-            img.src = `./img/gamesbackground/${images[index]}`;
-            img.classList.add('active');
-            gallery.appendChild(img);
+      if (isOn) {
+        buttonData.image.src = buttonData.onImage;
+        buttonData.image.alt = 'On';
+      } else {
+        buttonData.image.src = buttonData.offImage;
+        buttonData.image.alt = 'Off';
+      }
 
-            const previousImg = gallery.querySelector('img:not(.active)');
-            if (previousImg) {
-                previousImg.style.filter = 'blur(5px)'; 
-                setTimeout(() => {
-                    previousImg.remove();
-                }, 500); 
-            }
+      buttonData.button.addEventListener('click', () => {
+        isOn = !isOn;
+        localStorage.setItem(buttonData.stateKey, isOn ? 'on' : 'off');
 
-            currentImageIndex = (index + 1) % images.length;
-}
-
-
-function startSlideshow() {
-    showImage(currentImageIndex);
-    intervalId = setInterval(() => {
-        showImage(currentImageIndex);
-    }, 5000);
-}
-
-fetchImages(); // Llama a la función para cargar las imágenes al principio
-
-    </script>
+        if (isOn) {
+          buttonData.image.src = buttonData.onImage;
+          buttonData.image.alt = 'On';
+        } else {
+          buttonData.image.src = buttonData.offImage;
+          buttonData.image.alt = 'Off';
+        }
+      });
+    });
+  </script>
 </body>
 </html>

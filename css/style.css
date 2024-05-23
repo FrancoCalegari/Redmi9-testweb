@@ -309,6 +309,31 @@ nav a {
     width: 5rem;
 }
 
+
+.icons1 button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+  /* Animación de difuminado */
+.icons1 img {
+    transition: filter 2s ease;
+}
+
+.icons1 img[alt="Off"] {
+    filter: blur(0.1px);
+}
+
+
+
+
+
+
+
+
 /*footer*/
 
 footer {
