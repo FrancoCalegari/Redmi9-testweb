@@ -237,6 +237,42 @@ nav a {
 }
 
 
+
+
+        /* Estilo para el contenedor de la imagen en pantalla completa */
+        #fullscreenImageContainer {
+            display: none; /* Ocultar por defecto */
+            position: fixed; /* Fijar en la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            z-index: 100;
+        }
+
+        #fullscreenImage {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+        }
+
+        #closeFullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Otros estilos pueden ir aquí */
+
+
 /*camera section*/
 
 .camara {
@@ -302,6 +338,18 @@ nav a {
 .icons1 {
     display: flex;
     justify-content: center;
+    /* style */
+    background: #2e29299e;
+    backdrop-filter: blur(5px);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    list-style: none;
+    padding: 0.5rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
 }
 

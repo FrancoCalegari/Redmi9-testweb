@@ -39,9 +39,8 @@
         
     </section>
     <section id="gallery">
-
-
         <div class="gallery-int">
+            <!-- Sección de Pantalla -->
             <section id="pantalla" class="pantalla">
                 <h2>Pantalla</h2>
                 <p>El Redmi 9 de Xiaomi ofrece al consumidor una 
@@ -54,66 +53,66 @@
                     <img src="./img/redmi9/black/1702250129223.png" alt="">
                 </div>
             </section>
-        
+
+            <!-- Sección de Cámara -->
             <section id="camara" class="camara">
                 <h2>Cámara</h2>
-                     <ul>
-                        <li>Resolución: 13 megapíxeles.</li>
-                        <li>Tipo de sensor: 13MP OmniVision OV13B10 sensor</li>
-                        <li>Apertura: f/2.2.</li>
-                        <li>Enfoque automático: Sí, utiliza enfoque automático de detección de fase (PDAF).</li>
-                        <li>Otras características: HDR, panorama, modo de belleza, reconocimiento de escenas AI.</li>
-                     </ul>
+                <ul>
+                    <li>Resolución: 13 megapíxeles.</li>
+                    <li>Tipo de sensor: 13MP OmniVision OV13B10 sensor</li>
+                    <li>Apertura: f/2.2.</li>
+                    <li>Enfoque automático: Sí, utiliza enfoque automático de detección de fase (PDAF).</li>
+                    <li>Otras características: HDR, panorama, modo de belleza, reconocimiento de escenas AI.</li>
+                </ul>
                 <div class="gallery">
                     <img src="./img/camera photos/imagen1.webp" alt="Foto 1">
                     <img src="./img/camera photos/imagen2.jpg" alt="Foto 2">
                     <img src="./img/camera photos/imagen3.webp" alt="Foto 3">
                     <img src="./img/camera photos/imagen4.jpg" alt="Foto 4">
-                    <!-- Agrega más imágenes según sea necesario -->
                 </div>
             </section>
 
+            <!-- Contenedor para la imagen en pantalla completa -->
+            <div id="fullscreenImageContainer" class="hidden">
+                <img id="fullscreenImage" src="" alt="">
+                <button id="closeFullscreen">Cerrar</button>
+            </div>
+
+            <!-- Sección de Rendimiento -->
             <section id="rendimiento" class="rendimiento">
                 <h2>Rendimiento</h2>
-                <p>
-                    Experimenta la potencia sin límites con el MediaTek Helio G80. Con ocho núcleos, este 
+                <p>Experimenta la potencia sin límites con el MediaTek Helio G80. Con ocho núcleos, este 
                     procesador impulsa tu dispositivo a nuevas alturas. Acompañado por la GPU Mali-G52 MC2, 
                     disfruta de gráficos impresionantes para una experiencia visual inigualable. ¡Rinde al máximo!
                 </p>
                 <ul>
                     <img src="./img/rendimiento/meditaekg80.png" alt="">
                 </ul>
-
             </section>
 
+            <!-- Sección de Características -->
             <section id="caracteristicas" class="caracteristicas">
                 <div>
                     <h2>Conectividad</h2>
                     <p>
-                      1. <strong>Redes Móviles 4G LTE:</strong> El Xiaomi Redmi 9 ofrece compatibilidad con redes 4G LTE, proporcionando una conectividad rápida y eficiente
-                      [<a href="https://www.productindetail.com/pm/xiaomi-redmi-9" target="_blank">source</a>].
+                        1. <strong>Redes Móviles 4G LTE:</strong> El Xiaomi Redmi 9 ofrece compatibilidad con redes 4G LTE, proporcionando una conectividad rápida y eficiente
+                        [<a href="https://www.productindetail.com/pm/xiaomi-redmi-9" target="_blank">source</a>].
                     </p>
                     <p>
-                      2. <strong>Wi-Fi 5G/2.4G:</strong> Equipado con capacidades Wi-Fi, permitiendo la conexión a redes inalámbricas para una navegación fluida
-                      [<a href="https://www.mi.com/lk/redmi-9/specs" target="_blank">source</a>].
+                        2. <strong>Wi-Fi 5G/2.4G:</strong> Equipado con capacidades Wi-Fi, permitiendo la conexión a redes inalámbricas para una navegación fluida
+                        [<a href="https://www.mi.com/lk/redmi-9/specs" target="_blank">source</a>].
                     </p>
                     <p>
-                      3. <strong>Bluetooth 5.0:</strong> El dispositivo incorpora tecnología Bluetooth, facilitando la transferencia de datos y la conexión con dispositivos periféricos
-                      [<a href="https://www.androidauthority.com/redmi-9-review-1141699/" target="_blank">source</a>].
+                        3. <strong>Bluetooth 5.0:</strong> El dispositivo incorpora tecnología Bluetooth, facilitando la transferencia de datos y la conexión con dispositivos periféricos
+                        [<a href="https://www.androidauthority.com/redmi-9-review-1141699/" target="_blank">source</a>].
                     </p>
                     <div class="icons1">
-
                         <button id="toggleButton2">
                             <img id="buttonImage2" src="./img/iconmiui12/sis/status_bar_toggle_wifi_off.png" alt="Off"> 
                         </button>
-
-
                         <button id="toggleButton1">
                             <img id="buttonImage1" src="./img/iconmiui12/sis/status_bar_toggle_bluetooth_off.png" alt="Off"> 
                         </button>
-                        
-                       
-                        
                         <button id="toggleButton3">
                             <img id="buttonImage3" src="./img/iconmiui12/sis/status_bar_toggle_data_off.png" alt="Off"> 
                         </button>
@@ -122,6 +121,7 @@
             </section>
         </div>
     </section>
+
 
     <section class="MIUI">
         <h2>MIUI 11/12/12.5/13 Desing</h2>
@@ -200,6 +200,7 @@
     </footer>
 
    <script src="./js/buttons.js"></script>
+   <script src="./js/galerry.js"></script>
 
 </body>
 </html>
