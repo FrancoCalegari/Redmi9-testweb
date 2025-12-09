@@ -1,0 +1,63 @@
+/* RESPONSIVE */
+@media (max-width: 768px) {
+	header {
+		padding: 1rem;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	#inicio {
+		height: auto;
+		min-height: 100vh;
+		padding-top: 150px;
+	}
+
+	.cont-pres {
+		flex-direction: column;
+		text-align: center;
+		height: auto;
+	}
+
+	.pres-redmi {
+		padding: 0;
+		margin-bottom: 2rem;
+	}
+
+	.pres-redmi h3 {
+		font-size: 3rem;
+	}
+
+	.pres-img img {
+		transform: rotate(0);
+	}
+
+	.gallery-int {
+		width: 95%;
+	}
+
+	section {
+		padding: 1.5rem;
+	}
+
+	.battery-stats {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	th,
+	td {
+		display: block;
+		width: 100%;
+	}
+
+	th {
+		border-bottom: none;
+		padding-bottom: 0.5rem;
+		color: var(--primaryAccent);
+	}
+
+	nav {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}

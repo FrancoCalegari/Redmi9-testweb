@@ -1,617 +1,526 @@
 @font-face {
-    font-family: 'Mi Sans (Xiaomi)';
-    src: local('Mi Sans (Xiaomi) Regular'), local('Mi-Sans-(Xiaomi)-Regular'),
-        url('../ttf/MiSans-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+	font-family: "Mi Sans (Xiaomi)";
+	src: local("Mi Sans (Xiaomi) Regular"), local("Mi-Sans-(Xiaomi)-Regular"),
+		url("../ttf/MiSans-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
 }
 
-* { 
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
+:root {
+	--ColorText: #fff;
+	--ColorTextSecondary: #b0b0b0;
+	--backgroundColorCards: rgba(40, 40, 40, 0.6);
+	--primaryAccent: #007aff; /* MIUI Blue */
+	--bordercolor: rgba(255, 255, 255, 0.1);
+	--blur: blur(20px);
+	--cardRadius: 24px;
+	--transitionSpeed: 0.3s ease;
+}
 
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Mi Sans (Xiaomi)';
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	font-family: "Mi Sans (Xiaomi)", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #1a1a1a;
+	color: var(--ColorText);
+	overflow-x: hidden;
 }
 
-/* nav*/
-
-body {
-    background-color: #14252D;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-#inicio {
-    background-color: transparent;
-    background-image: url(../img/wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-
+/* === HEADER & NAV === */
 header {
-    background: transparent;
-    color: #fff;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-    
-
+	width: 100%;
+	padding: 1.5rem 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	background: rgba(26, 26, 26, 0.85);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--bordercolor);
 }
 
 header h1 {
-    font-family: Mi Sans (Xiaomi) ;
-    color: #fff;
-    background-color: #333;
-    border-radius: 15px;
-    padding: 9px;
-    font-size: 1.5rem;
-    
+	font-family: "Mi Sans (Xiaomi)", sans-serif;
+	font-size: 1.5rem;
+	font-weight: 600;
+	background: transparent;
+	padding: 0;
+	border-radius: 0;
+	color: var(--ColorText);
 }
 
 nav {
-    border-radius: 15px;
+	display: flex;
+	gap: 1.5rem;
+	background: rgba(50, 50, 50, 0.5);
+	padding: 10px 20px;
+	border-radius: 50px;
+	backdrop-filter: blur(5px);
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #333;
-    text-align: center;
-    padding: 12px;
-    border-radius: 15px;
-    font-size: 1rem;
+	color: var(--ColorText);
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 0.95rem;
+	padding: 8px 16px;
+	border-radius: 20px;
+	transition: var(--transitionSpeed);
+	background: transparent;
 }
 
+nav a:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
 
-/*Section general config*/
-
+/* === HERO SECTION === */
 #inicio {
-    width: 100%;
-    height: 75vh;
-    background-color: transparent;
-    margin: auto;
-    overflow: hidden;
-}
-
-.pres-redmi {
-    font-size: 1.2rem;
-    text-align: center;
-    background-color: transparent;
-    color: #fff;
-}
-
-
-
-.space {
-    width: 20rem;
-    height: 20rem;
-    background-color: transparent;
-}
-
-.pres-img {
-    width: 42%;
-    height: auto;
-    right: -1rem;
-    top: -25px;
-    position: relative;
-    z-index: 1;
-    float: right;
-    background-color: transparent;
-    filter: drop-shadow(5px 5px 5px #333);
-}
-
-.pres-img img {
-    width: 50rem;
-    height: auto;
-    transform: rotate(160deg);
+	width: 100%;
+	height: 100vh;
+	background-image: url(../img/wallpaper.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding-top: 80px; /* Header offset */
 }
 
 .cont-pres {
-    background-color: transparent;
-    background: linear-gradient(0deg, #14252D 0%, rgba(249, 249, 249, 0) 50%, #14252D 103%);
-    height: 75vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	max-width: 1200px;
+	height: 80%;
+	/* Gradient overlay for text readability */
+	background: radial-gradient(
+		circle at center,
+		rgba(0, 0, 0, 0.4) 0%,
+		rgba(0, 0, 0, 0.8) 100%
+	);
+	border-radius: var(--cardRadius);
+	padding: 2rem;
+	backdrop-filter: blur(5px);
+	border: 1px solid var(--bordercolor);
+}
+
+.pres-redmi {
+	flex: 1;
+	text-align: left;
+	padding-left: 2rem;
+	z-index: 10;
+}
+
+.pres-redmi h3 {
+	font-size: 4rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	background: linear-gradient(to right, #fff, #bbb);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.pres-redmi p {
+	font-size: 1.5rem;
+	color: var(--ColorTextSecondary);
+	margin-bottom: 2rem;
 }
 
 .colab {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 5px;
-    
+	display: flex;
+	gap: 20px;
+	justify-content: flex-start;
 }
 
 .colab-img {
-    height: 2.2rem;
+	height: 40px;
+	opacity: 0.8;
+	transition: opacity 0.3s;
 }
 
-/*pantalla*/
-
-.pantalla {
-    color: #fff;
-    background-color: #444;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.colab-img:hover {
+	opacity: 1;
 }
 
-.pantalla h2 {
-    font-size: 1.5rem;
-    text-align: center;
+.pres-img {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	z-index: 10;
 }
 
-.pantalla p {
-    font-size: 1rem;
-    width: 80%;
-    text-align: center;
+.pres-img iframe {
+	width: 100%;
+	max-width: 500px;
+	height: 500px; /* Force height from attribute */
+	border: none;
+	filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+	border-radius: 20px;
 }
 
-.pantalla div {
-    display: flex;
-    justify-content: center;
-
-}
-
-.pantalla img {
-    height: 13rem;
-    margin: auto;
-
-}
-
-
-/* gallery config*/
-
-
+/* === GENERAL SECTIONS & CARDS === */
 #gallery {
-    background-color: #14252D;
-    background-color: transparent;
-    background: linear-gradient(0deg, #000000 0%, rgba(249, 249, 249, 0) 50%, #14252D 100%);
-    padding: 200px 0px 200px 0px;
+	padding: 4rem 0;
+	background: #121212;
 }
-
 
 .gallery-int {
-    width: 87%;
-    max-width: 1200px;
-    margin: auto;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(5rem, auto);
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+section.pantalla,
+section.camara,
+section.rendimiento,
+section.bateria,
+section.specs-table-section,
+section.caracteristicas,
+section.gcam,
+section.os,
+section.juegos .games-div-1 {
+	background: var(--backgroundColorCards);
+	backdrop-filter: var(--blur);
+	-webkit-backdrop-filter: var(--blur); /* Safari support */
+	border-radius: var(--cardRadius);
+	border: 1px solid var(--bordercolor);
+	padding: 3rem;
+	color: var(--ColorText);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+	position: relative;
+	overflow: hidden;
+}
+
+h2 {
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+p {
+	line-height: 1.6;
+	color: #e0e0e0;
+}
+
+/* === SPECIFIC SECTIONS === */
+
+/* Pantalla */
+.pantalla {
+	text-align: center;
+}
+.pantalla p {
+	max-width: 800px;
+	margin: 0 auto 2rem auto;
+	font-size: 1.1rem;
+}
+.pantalla img {
+	max-width: 80%;
+	margin-top: 1rem;
+	filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Cámara Specs Grid */
+.specs-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.spec-card {
+	background: rgba(255, 255, 255, 0.05);
+	padding: 1.5rem;
+	border-radius: 20px;
+	text-align: center;
+	transition: transform 0.3s;
+}
+
+.spec-card:hover {
+	transform: translateY(-5px);
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.spec-card h3 {
+	font-size: 1.8rem;
+	color: var(--primaryAccent);
+	margin-bottom: 0.5rem;
+}
+
+.spec-card p {
+	font-size: 0.9rem;
+	color: #ccc;
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 0fr);
-    grid-gap: 5px;
-    justify-content: center;
-    border-radius: 25px;
-    overflow: hidden;
-    width: fit-content;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 2rem;
+	flex-wrap: wrap;
+	border-radius: 0; /* Reset specific override */
+	grid-template-columns: none; /* Reset specific override */
 }
 
 .gallery img {
-    width: 14vw;
-    max-width: 300px;
-    height: 14rem;
-    object-fit: cover;
-    transition: 500ms all;
-    border: #14252D;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 16px;
+	cursor: pointer;
+	transition: transform 0.3s, box-shadow 0.3s;
+	border: none;
 }
 
 .gallery img:hover {
-    cursor: pointer;
-    border: #444 solid 5px;
-    border-radius: 15px;
-    transition: 500ms all;
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+	z-index: 10;
+	border: none;
 }
 
-.gallery-int section {
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    list-style: none;
-    
+/* Rendimiento */
+.chipset-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 2rem;
 }
 
-
-
-
-        /* Estilo para el contenedor de la imagen en pantalla completa */
-        #fullscreenImageContainer {
-            display: none; /* Ocultar por defecto */
-            position: fixed; /* Fijar en la pantalla */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
-            z-index: 100;
-        }
-
-        #fullscreenImage {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 15px;
-        }
-
-        #closeFullscreen {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Otros estilos pueden ir aquí */
-
-
-/*camera section*/
-
-.camara {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2vh;
+.chip-text h3 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-.camara ul {
-    text-align:left;
-    width: 90%;
-    margin: auto;
-    list-style: initial;
-    margin-top: 10px;
+.rendimiento img {
+	max-width: 300px;
+	filter: drop-shadow(0 0 20px rgba(255, 153, 102, 0.3));
 }
 
-.camara li {
-    font-size: 1rem;
+/* Batería */
+.battery-stats {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	margin-top: 2rem;
 }
 
-.camara h2 {
-    font-size: 1.5rem;
+.stat-item .big-num {
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: #4cd964; /* Green charging color */
+	display: block;
+}
+.stat-item .unit {
+	font-size: 1.2rem;
+	color: #888;
 }
 
-/*rendimeinto*/
-
-.rendimiento  img {
-    width: 10rem;
-    filter: drop-shadow(5px 5px 5px #333);
+/* Tech Specs Table */
+.table-container {
+	overflow-x: auto;
 }
 
-.rendimiento {
-    padding: 2vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1rem;
 }
 
-.rendimiento h2 {
-    font-size: 1.5rem;
+th,
+td {
+	padding: 1.5rem;
+	text-align: left;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/*caracteristicas*/
-
-.caracteristicas ul {
-    list-style: none;
+th {
+	width: 30%;
+	color: #aaa;
+	font-weight: 500;
 }
 
-.caracteristicas {
-    padding: 2vh;
+td {
+	font-weight: 600;
 }
 
-.caracteristicas h2 {
-    font-size: 1.5rem;
-    text-align: center;
+tr:last-child th,
+tr:last-child td {
+	border-bottom: none;
 }
 
-.icons1 {
-    display: flex;
-    justify-content: center;
-    /* style */
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    list-style: none;
-    padding: 0.5rem;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
+/* Connectivity / Control Center */
+.connectivity-panel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.icons1 img {
-    width: 5rem;
+.control-center {
+	background: rgba(30, 30, 30, 0.9);
+	padding: 2rem;
+	border-radius: 30px;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-
-.icons1 button {
-    background: none;
-    border: none;
-    cursor: pointer;
+.connectivity-toggles {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
 }
 
-
-
-  /* Animación de difuminado */
-.icons1 img {
-
-    transition: all 1000ms ease-in-out;
+.cc-toggle {
+	background: none;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	width: 80px;
 }
 
-.icons1 img[alt="Off"] {
-    filter: blur(0.1px);
-    transition: all 1000ms ease-in-out;
+.cc-toggle .icon-wrapper {
+	width: 60px;
+	height: 60px;
+	background: transparent;
+	border-radius: 13px; /* Squircle */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 500ms ease;
 }
 
-
-/*arreglar el tema de los botones ya que no tienen que ser imagenes sino cajas de css*/
-
-
-
-
-
-/*footer*/
-
-footer {
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
-    width: 100%;
+.cc-toggle span {
+	color: #fff;
+	font-size: 0.8rem;
 }
 
-
-/* Miui Dark*/
-
-.MIUI {
-    color: #fff;
-    background-color: #000000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.cc-toggle:hover .icon-wrapper {
+	background: transparent;
 }
 
-.MIUI h2{
-    font-size: 3rem;
-    padding-top: 25px;
-    
+/* Active states (Handled by JS ideally, but styling here) */
+.cc-toggle.active .icon-wrapper {
+	background: var(--primaryAccent);
+	box-shadow: 0 0 15px var(--primaryAccent);
 }
 
-.MIUI img{
-    width: 100%;
+.cc-toggle img {
+	width: 110%;
+	height: 110%;
 }
 
-
-
-
-/*Juegos*/
-
+/* Extras: Juegos, GCam, OS */
 .juegos {
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    padding-top: 6vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
-
-    height: fit-content;
-}
-
-
-.juegos::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #14252D;
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    background: linear-gradient(0deg, #000000 -1%, rgba(9, 9, 9, 0.671) 50%, #14252D 100%); /* Fondo semi-transparente para mejorar la legibilidad del texto */
-    z-index: -1;
+	background: #121212;
+	padding: 3rem 0;
 }
 
 .games-section {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-flow: wrap;
-    justify-content: center;
-    padding-bottom: 5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
 }
 
 .games-div-1 {
-    padding: 3rem;
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 1rem;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 300px;
+	margin: 0;
 }
 
-.games-div-1 div {
-    margin-right: 3rem;
+.games-div-1 img {
+	width: 80px;
+	height: 80px;
+	border-radius: 20px;
+	margin-bottom: 1rem;
 }
 
-.juegos div img {
-    border-radius: 23%;
-    width: 4rem;
+.gcam,
+.os {
+	width: 90%;
+	max-width: 1200px;
+	margin: 3rem auto;
 }
 
-.juegos div div div {
-    display: flex;
-    align-items: center;
-    
+/* Fullscreen Image Overlay */
+#fullscreenImageContainer {
+	display: none; /* Controlled by JS to verify flex/none */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.95);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.3s;
 }
 
-.games-p p {
-    margin-bottom: 2.5rem;
+#fullscreenImageContainer.visible {
+	opacity: 1;
 }
 
-/*gcam*/
-
-.gcam div{
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
+#fullscreenImageContainer.flex {
+	display: flex;
 }
 
-/*os*/
-
-.os div{
-    background: #2e29299e;
-    backdrop-filter: blur(5px);
-    color: #fff;
+#fullscreenImage {
+	max-height: 90vh;
+	max-width: 90vw;
+	border-radius: 10px;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
-
-
-/*responsive desing*/
-
-@media only screen and (max-width: 600px) {   
-    nav a {
-    display: block;
-    font-size: 1vh;
-    }
-    header h1 {
-        font-family: Mi Sans (Xiaomi) ;
-        color: #fff;
-        background-color: #333;
-        border-radius: 15px;
-        padding: 1.5rem;
-        font-size: 1.2rem;
-        
-    }
-
-    nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        background-color: #333;
-        text-align: center;
-        border-radius: 15px;
-        font-size: 0.7rem;
-        margin-top: 0.5rem;
-    }
-
-    header {
-        background: #2e29299e;
-        color: #fff;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.201);
-        color: #fff;
-        padding: 5px;
-        display: flex;
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        margin: auto;
-        flex-direction:column;
-    
-    }
-
-    nav {
-        border-radius: 15px;
-        display: flex;
-    }
+#closeFullscreen {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size: 2rem;
+	color: #fff;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 }
 
-@media only screen and (max-width: 870px) {
- 
-
-    .gallery img {
-        max-width: 100%;
-    }
-
-    .gallery-int {
-        width: 88%;
-        max-width: 660px;
-        margin: auto;
-        border-radius: 20px;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 10px;
-        grid-auto-rows: minmax(5rem, auto);
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-    }
-
-    .gallery img {
-        width: 10rem;
-        max-width: 300px;
-        height: 10rem;
-        object-fit: cover;
-    }
-
-    .pantalla img {
-        height: 10rem;
-        margin: auto;
-    
-    }
-
-   
-    #inicio {
-        width: 100%;
-        background-color: transparent;
-        margin: auto;
-        overflow: hidden;
-    }
+/* Footer */
+footer {
+	text-align: center;
+	padding: 2rem;
+	background: #000;
+	color: #666;
+	font-size: 0.9rem;
 }
