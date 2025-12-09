@@ -40,9 +40,9 @@ body {
 /* === HEADER & NAV === */
 header {
 	width: 100%;
-	padding: 1.5rem 2rem;
+	padding: 1rem 1.5rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	position: fixed;
 	top: 0;
@@ -64,7 +64,7 @@ header h1 {
 
 nav {
 	display: flex;
-	gap: 1.5rem;
+	gap: 1rem;
 	background: rgba(50, 50, 50, 0.5);
 	padding: 10px 20px;
 	border-radius: 50px;
@@ -98,7 +98,20 @@ nav a:hover {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	padding-top: 80px; /* Header offset */
+	padding: 5rem 0rem; /* Header offset */
+}
+
+#inicio::after {
+	content: "";
+	position: absolute;
+	bottom: -0.5%;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(to bottom, transparent, #121212);
+	/* backdrop-filter: blur(8px); */
+	pointer-events: none;
+	z-index: 5;
 }
 
 .cont-pres {
@@ -312,7 +325,7 @@ p {
 .chip-text h3 {
 	font-size: 2.5rem;
 	margin-bottom: 1rem;
-	background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+	background: linear-gradient(135deg, #ef910e 0%, #ff995e 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -415,7 +428,7 @@ tr:last-child td {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: all 500ms ease;
+	transition: all 300ms ease;
 }
 
 .cc-toggle span {
@@ -439,32 +452,243 @@ tr:last-child td {
 }
 
 /* Extras: Juegos, GCam, OS */
-.juegos {
-	background: #121212;
-	padding: 3rem 0;
+/* === GAMES SECTION BACKGROUND === */
+#dynamicBackgroundSection {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	transition: background-image 1s ease-in-out;
+	padding: 4rem 0;
+	overflow: hidden;
 }
 
-.games-section {
+#dynamicBackgroundSection::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(18, 18, 18, 0.85); /* Dark overlay for readability */
+	backdrop-filter: blur(5px);
+	z-index: 1;
+}
+
+.games-container {
+	position: relative;
+	z-index: 2; /* Put content above overlay */
+
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.games-grid {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 2rem;
+	gap: 1.5rem;
+	margin-top: 2rem;
+	height: 100%;
 }
 
-.games-div-1 {
+/* Specific styling for Top 5 scroll on mobile */
+@media (max-width: 768px) {
+	.games-grid.top-5 {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		justify-content: flex-start;
+		padding-bottom: 1rem;
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-type: x mandatory;
+	}
+}
+
+.game-card {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 20px;
+	overflow: hidden;
+	width: 200px;
+	flex-shrink: 0; /* Prevent shrinking in scroll view */
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+	text-align: left;
+	scroll-snap-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	position: relative;
+}
+
+.game-card:hover {
+	transform: translateY(-10px) scale(1.02);
+	background: rgba(255, 255, 255, 0.15);
+	border-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.1);
+	z-index: 10;
+}
+
+.game-card img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.game-info {
+	padding: 1rem;
+}
+
+.game-info h3 {
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tags {
 	display: flex;
 	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.tag {
+	font-size: 0.75rem;
+	padding: 4px 8px;
+	border-radius: 6px;
+	width: fit-content;
+}
+
+.tag.low {
+	background: rgba(255, 204, 0, 0.2);
+	color: #ffcc00;
+}
+.tag.mid {
+	background: rgba(0, 204, 255, 0.2);
+	color: #00ccff;
+}
+.tag.high {
+	background: rgba(50, 255, 100, 0.2);
+	color: #32ff64;
+}
+
+.view-more-container {
+	margin-top: 2rem;
+}
+
+.btn-view-more {
+	display: inline-block;
+	padding: 12px 24px;
+	background: var(--primaryAccent);
+	color: #fff;
+	text-decoration: none;
+	border-radius: 30px;
+	font-weight: 600;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-view-more:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
+}
+
+/* Page spacing for games.html */
+.extra-padding {
+	padding: 14vh 0;
+}
+
+/* === GCAM SECTION === */
+.gcam-container {
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 24px;
+	padding: 3rem;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gcam-header {
+	display: flex;
 	align-items: center;
-	text-align: center;
-	width: 300px;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+	justify-content: center;
+	flex-wrap: wrap; /* Handle small screens */
+}
+
+.gcam-logo {
+	width: 60px;
+	height: auto;
+}
+
+.gcam h2 {
+	font-size: 2.2rem;
 	margin: 0;
 }
 
-.games-div-1 img {
-	width: 80px;
-	height: 80px;
-	border-radius: 20px;
+.gcam-desc {
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto 3rem auto;
+	font-size: 1.1rem;
+	color: #ccc;
+}
+
+/* Tutorial Split Layout */
+.gcam-tutorial {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+	align-items: center;
+	text-align: left;
+}
+
+.tutorial-text h3 {
+	font-size: 1.5rem;
 	margin-bottom: 1rem;
+	color: var(--primaryAccent);
+}
+
+.steps-list {
+	margin: 1.5rem 0 2rem 1.5rem;
+	color: #ddd;
+	line-height: 1.6;
+}
+
+.steps-list li {
+	margin-bottom: 0.8rem;
+}
+
+.tutorial-visual img {
+	width: 100%;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-download {
+	display: inline-block;
+	padding: 14px 30px;
+	background: #00d2ff; /* GCam-ish Blue */
+	color: #000;
+	text-decoration: none;
+	border-radius: 30px;
+	font-weight: 700;
+	font-size: 1.1rem;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-download:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
+}
+
+/* Responsive GCam */
+@media (max-width: 768px) {
+	.gcam-tutorial {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.steps-list {
+		text-align: left; /* Keep steps readable */
+	}
 }
 
 .gcam,
@@ -472,6 +696,56 @@ tr:last-child td {
 	width: 90%;
 	max-width: 1200px;
 	margin: 3rem auto;
+}
+
+/* === OS SECTION === */
+.os-container {
+	text-align: center;
+}
+
+.os-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+.os-card {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 20px;
+	width: 160px; /* Square tiles */
+	height: 160px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: all 0.3s ease;
+	padding: 1rem;
+}
+
+.os-card:hover {
+	transform: translateY(-8px);
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.os-card img {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+	border-radius: 12px; /* Slightly rounded logos */
+	margin-bottom: 1rem;
+}
+
+.os-card h3 {
+	font-size: 0.9rem;
+	margin: 0;
+	font-weight: 500;
 }
 
 /* Fullscreen Image Overlay */
